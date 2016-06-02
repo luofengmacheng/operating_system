@@ -152,7 +152,7 @@ popl %ebp
 
 ![](https://github.com/luofengmacheng/operating_system/blob/master/pics/pic4.png)
 
-#### 2.4 对函数调用的总结
+### 4 对函数调用的总结
 
 ![](https://github.com/luofengmacheng/operating_system/blob/master/pics/pic5.png)
 
