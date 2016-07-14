@@ -301,3 +301,33 @@ $1f是标号为1:后面一行的代码的地址。
 * 问题3：my_schedule()函数中，当当前进程的状态为1时，也有`movl $1f,%1\n\t`，但是，为什么没有"1:\t"？
 
 表示将汇编语句的最后作为返回地址。
+
+### 7 实验过程中遇到的问题
+
+个人在虚拟机上搭建环境，遇到了几个问题：
+
+* 执行gcc -o init linktable.c menu.c test.c -m32 -static –lpthread语句时，报：
+
+```
+-lpthread: No such file or directory
+```
+
+一直以为是缺少pthread库，但是，发现系统中有该库，后来在网上查找，说是缺少glibc，但是，我也已经安装了glibc，最后测试了下，是缺少glibc-static库。
+
+```
+yum install -y glibc-static.i686
+```
+
+* 启动虚拟机(qemu -kernel linux-3.18.6/arch/x86/boot/bzImage -initrd rootfs.img)时，报:
+
+```
+VNC server running on '::1;5900'
+```
+
+就是出不来虚拟机的窗口。
+
+解决：安装tigervnc(yum install -y tigervnc.x86_64)，然后在可视化界面执行
+
+```
+vncviewer localhost::5900
+```
