@@ -331,3 +331,12 @@ VNC server running on '::1;5900'
 ```
 vncviewer localhost::5900
 ```
+
+* 编译内核加入调试信息(执行make menuconfig)时，make: *** [menuconfig] 错误 2
+
+解决：
+
+```
+yum install -y ncurses-devel.x86_64
+yum install -y ncurses-static.x86_64
+```
